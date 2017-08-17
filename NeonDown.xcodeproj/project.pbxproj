@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD2B1CB71F43E17A001175E2 /* TrechosDeCodigosAtuais in Resources */ = {isa = PBXBuildFile; fileRef = AD2B1CB61F43E17A001175E2 /* TrechosDeCodigosAtuais */; };
 		ADF298241F3FB0D500DE8767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF298231F3FB0D500DE8767 /* AppDelegate.swift */; };
 		ADF298261F3FB0D500DE8767 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADF298251F3FB0D500DE8767 /* GameScene.sks */; };
 		ADF298281F3FB0D500DE8767 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADF298271F3FB0D500DE8767 /* Actions.sks */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD2B1CB61F43E17A001175E2 /* TrechosDeCodigosAtuais */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TrechosDeCodigosAtuais; sourceTree = "<group>"; };
 		ADF298201F3FB0D500DE8767 /* NeonDown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeonDown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF298231F3FB0D500DE8767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF298251F3FB0D500DE8767 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				ADF298581F3FB3E200DE8767 /* oldGameScene */,
+				AD2B1CB61F43E17A001175E2 /* TrechosDeCodigosAtuais */,
 			);
 			name = SomeCodes;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				ADF2982F1F3FB0D500DE8767 /* Main.storyboard in Resources */,
 				ADF298591F3FB3E200DE8767 /* oldGameScene in Resources */,
+				AD2B1CB71F43E17A001175E2 /* TrechosDeCodigosAtuais in Resources */,
 				ADF298261F3FB0D500DE8767 /* GameScene.sks in Resources */,
 				ADF298311F3FB0D500DE8767 /* Assets.xcassets in Resources */,
 				ADF298341F3FB0D500DE8767 /* LaunchScreen.storyboard in Resources */,
@@ -574,6 +578,7 @@
 				ADF298501F3FB0D500DE8767 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADF298511F3FB0D500DE8767 /* Build configuration list for PBXNativeTarget "NeonDownTests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +587,7 @@
 				ADF298531F3FB0D500DE8767 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADF298541F3FB0D500DE8767 /* Build configuration list for PBXNativeTarget "NeonDownUITests" */ = {
 			isa = XCConfigurationList;
@@ -590,6 +596,7 @@
 				ADF298561F3FB0D500DE8767 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

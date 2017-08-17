@@ -15,8 +15,8 @@ class GameScene: SKScene {
     
     //Mark: Init scene
     override func sceneDidLoad() {
-     
-        generatePlatforms()
+        generatePlatforms(qtOfCreations: 25)
+       
     }
     
     
@@ -62,22 +62,22 @@ class GameScene: SKScene {
     
     
     //Mark: Functions
-    func generatePlatforms() {
+    func generatePlatforms(qtOfCreations: Int) {
+        if qtOfCreations < 0 {
+            return
+        }
         
-        //create a plataform
         let platform = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "blueSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 15), platformColorID: ColorIDenum.green.rawValue)
         
-        let plataform2 = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "blueSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 15), platformColorID: ColorIDenum.green.rawValue)
+        
        
         
-        platform.position = CGPoint(x: (1.25*(platform.frame.width/2)), y: 0)
-        plataform2.position = CGPoint(x: -(1.25*(platform.frame.width/2)), y: 0)
-      
-        
-        self.addChild(platform)
-        self.addChild(plataform2)
+         self.addChild(platform)
         
         
+        
+        //recursive
+        generatePlatforms(qtOfCreations: (qtOfCreations-1))
     }
     
     
