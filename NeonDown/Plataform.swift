@@ -22,12 +22,11 @@ class Plataform: SKSpriteNode {
         super.init(texture: texture, color: color, size: size)
         self.platformColorID = platformColorID
         
-        print(dbgmsg + "Platform Created: | \(self.position) | \(self.size) | \(self.platformColorID)")
+       
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
     
 }

@@ -12,10 +12,21 @@ import GameplayKit
 class GameScene: SKScene {
     
     
+    //Mark: Global vars
+    var lastYPosition: CGFloat?
+    
+    
+    
+    private let dbgmsg = "[GameScene]: "
+    
+    
     
     //Mark: Init scene
     override func sceneDidLoad() {
-        generatePlatforms(qtOfCreations: 25)
+      
+        //criando plataformas - Test
+        generatePlatforms(totalOfPlatforms: 10, currentPlatform: 1, ratioOfYDistances: -45.5, firstYPos: 250)
+      
        
     }
     
@@ -62,25 +73,39 @@ class GameScene: SKScene {
     
     
     //Mark: Functions
-    func generatePlatforms(qtOfCreations: Int) {
-        if qtOfCreations < 0 {
+    
+    func generatePlatforms(totalOfPlatforms: Int,currentPlatform: Int,ratioOfYDistances: Float,firstYPos: Float){
+        
+        
+        //Calculate the platform Y position using arithmetic progression
+        let currentYPos = CGFloat(firstYPos + (Float(currentPlatform) - 1)*(ratioOfYDistances))
+        
+        
+        if currentPlatform >= totalOfPlatforms {
+            lastYPosition = currentYPos
             return
+        }else {
+            //generating platform
+            let platform = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "blueSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 15), platformColorID: ColorIDenum.green.rawValue)
+            
+            //setup platform y position
+            platform.position = CGPoint(x: 0.0, y: currentYPos)
+            
+            
+            //add chield node
+            self.addChild(platform)
+            
+            print(dbgmsg + "Platform: \(platform.platformColorID) | \(platform.position) | \(platform.size)")
+
         }
         
-        let platform = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "blueSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 15), platformColorID: ColorIDenum.green.rawValue)
+        //recurusive mode
+        generatePlatforms(totalOfPlatforms: totalOfPlatforms, currentPlatform: (currentPlatform+1), ratioOfYDistances: ratioOfYDistances, firstYPos: firstYPos)
         
-        
-       
-        
-         self.addChild(platform)
-        
-        
-        
-        //recursive
-        generatePlatforms(qtOfCreations: (qtOfCreations-1))
     }
     
     
+     
     
     
 }

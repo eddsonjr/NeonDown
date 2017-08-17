@@ -12,3 +12,49 @@
 //
 //        self.addChild(platform)
 //        self.addChild(plataform2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//    func generatePlatforms(qtOfCreations: Int){
+//        if qtOfCreations < 0 {
+//            return
+//        }
+//
+//        //generating platform
+//        let platform = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "blueSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 15), platformColorID: ColorIDenum.green.rawValue)
+//
+//
+//        /*Caso seja a primera vez jogando, respeitar a primeira posicao configurada previamente*/
+//        if firstPlay {
+//            platform.position = CGPoint(x: 0.0, y: lastYPosition!)
+//        }else { /*Caso contrario, usar as questoes de proporcionalidade de espaco*/
+//            platform.position = CGPoint(x: 0.0, y: lastYPosition!-platform.getYDistancesProporcional())
+//        }
+//
+//
+//
+//
+//        print("Platform: \(platform.position) | \(platform.size) | \(platform.platformColorID)")
+//
+//        //add platform on scene
+//        self.addChild(platform)
+//
+//
+//        //recursive
+//        generatePlatforms(qtOfCreations: (qtOfCreations-1))
+//    }
+

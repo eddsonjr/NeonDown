@@ -88,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADD5C0481F4522C800A4C36F /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				ADF298251F3FB0D500DE8767 /* GameScene.sks */,
+				ADF298271F3FB0D500DE8767 /* Actions.sks */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
 		ADF298171F3FB0D500DE8767 = {
 			isa = PBXGroup;
 			children = (
@@ -152,9 +161,8 @@
 		ADF2985A1F3FB46600DE8767 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				ADD5C0481F4522C800A4C36F /* Scene */,
 				ADF2982D1F3FB0D500DE8767 /* Main.storyboard */,
-				ADF298271F3FB0D500DE8767 /* Actions.sks */,
-				ADF298251F3FB0D500DE8767 /* GameScene.sks */,
 				ADF298321F3FB0D500DE8767 /* LaunchScreen.storyboard */,
 			);
 			name = view;
