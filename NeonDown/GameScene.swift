@@ -25,8 +25,7 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
       
         //criando plataformas - Test
-        generatePlatforms(totalOfPlatforms: 10, currentPlatform: 1, ratioOfYDistances: -45.5, firstYPos: 250)
-      
+        generatePlatforms(totalOfPlatforms: 5, currentPlatform: 1, ratioOfYDistances: -45.5, firstYPos: 250, platformColorID: getTypeOfPlatform())
        
     }
     
@@ -74,38 +73,88 @@ class GameScene: SKScene {
     
     //Mark: Functions
     
-    func generatePlatforms(totalOfPlatforms: Int,currentPlatform: Int,ratioOfYDistances: Float,firstYPos: Float){
+    
+    //Generate Y and X Platforms in screen
+    func generatePlatforms(totalOfPlatforms: Int,currentPlatform: Int,ratioOfYDistances: Float,firstYPos: Float, platformColorID: Int){
         
         
         //Calculate the platform Y position using arithmetic progression
-        let currentYPos = CGFloat(firstYPos + (Float(currentPlatform) - 1)*(ratioOfYDistances))
-        
-        
-        if currentPlatform >= totalOfPlatforms {
+        var currentYPos = CGFloat(firstYPos + (Float(currentPlatform) - 1)*(ratioOfYDistances))
+      
+        if currentPlatform > totalOfPlatforms {
             lastYPosition = currentYPos
             return
         }else {
-            //generating platform
-            let platform = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "blueSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 15), platformColorID: ColorIDenum.green.rawValue)
-            
-            //setup platform y position
-            platform.position = CGPoint(x: 0.0, y: currentYPos)
             
             
-            //add chield node
-            self.addChild(platform)
-            
-            print(dbgmsg + "Platform: \(platform.platformColorID) | \(platform.position) | \(platform.size)")
+            switch platformColorID {
+    
+                case ColorIDenum.green.rawValue:
+                    print(dbgmsg + "GREEN platform")
+                    
+                    //Create a platform
+                    let platform = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "greenSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 25), platformColorID: ColorIDenum.green.rawValue)
+                
+                    //setup platform y position
+                    platform.position = CGPoint(x: 0.0, y: currentYPos)
+                    //add chield node
+                    self.addChild(platform)
+    
+                    print(dbgmsg + "Platform: \(platform.platformColorID) | \(platform.position) | \(platform.size)")
+                    break
+                
+                
+                
+                case ColorIDenum.blue.rawValue:
+                    print(dbgmsg + "BLUE platform")
+                    let platform = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "blueSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 25), platformColorID: ColorIDenum.green.rawValue)
+                
+                    //setup platform y position
+                    platform.position = CGPoint(x: 0.0, y: currentYPos)
+                    //add chield node
+                    self.addChild(platform)
+                    
+                    print(dbgmsg + "Platform: \(platform.platformColorID) | \(platform.position) | \(platform.size)")
 
+  
+                break
+
+                
+                default:
+                    print(dbgmsg + "DEFAULT>> GREEN platform")
+                    let platform = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "greenSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 25), platformColorID: ColorIDenum.green.rawValue)
+                
+                    //setup platform y position
+                    platform.position = CGPoint(x: 0.0, y: currentYPos)
+                    //add chield node
+                    self.addChild(platform)
+                    
+                    print(dbgmsg + "Platform: \(platform.platformColorID) | \(platform.position) | \(platform.size)")
+                
+            } //close switch case
+            
         }
         
         //recurusive mode
-        generatePlatforms(totalOfPlatforms: totalOfPlatforms, currentPlatform: (currentPlatform+1), ratioOfYDistances: ratioOfYDistances, firstYPos: firstYPos)
+        generatePlatforms(totalOfPlatforms: totalOfPlatforms, currentPlatform: (currentPlatform+1), ratioOfYDistances: ratioOfYDistances, firstYPos: firstYPos,platformColorID: platformColorID)
+    }
+    
+    
+    
+    
+    
+    
+    //This functions chooses the type of platfomr 
+    func getTypeOfPlatform() -> Int {
+        
+        let typeOfPlatform = Int(arc4random_uniform(UInt32(ColorIDenum.count)))
+        print(dbgmsg + "Platform color id: \(typeOfPlatform)")
+        return typeOfPlatform
         
     }
     
     
-     
+    
     
     
 }

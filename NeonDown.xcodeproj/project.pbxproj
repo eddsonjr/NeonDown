@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD2B1CB71F43E17A001175E2 /* TrechosDeCodigosAtuais in Resources */ = {isa = PBXBuildFile; fileRef = AD2B1CB61F43E17A001175E2 /* TrechosDeCodigosAtuais */; };
+		ADC452A11F47309300EC4E5E /* PlatformTypes+Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC452A01F47309300EC4E5E /* PlatformTypes+Variables.swift */; };
 		ADF298241F3FB0D500DE8767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF298231F3FB0D500DE8767 /* AppDelegate.swift */; };
 		ADF298261F3FB0D500DE8767 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADF298251F3FB0D500DE8767 /* GameScene.sks */; };
 		ADF298281F3FB0D500DE8767 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADF298271F3FB0D500DE8767 /* Actions.sks */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		AD2B1CB61F43E17A001175E2 /* TrechosDeCodigosAtuais */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TrechosDeCodigosAtuais; sourceTree = "<group>"; };
+		ADC452A01F47309300EC4E5E /* PlatformTypes+Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlatformTypes+Variables.swift"; sourceTree = "<group>"; };
 		ADF298201F3FB0D500DE8767 /* NeonDown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeonDown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF298231F3FB0D500DE8767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADF298251F3FB0D500DE8767 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADC4529F1F47307700EC4E5E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ADC452A01F47309300EC4E5E /* PlatformTypes+Variables.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		ADD5C0481F4522C800A4C36F /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +130,7 @@
 		ADF298221F3FB0D500DE8767 /* NeonDown */ = {
 			isa = PBXGroup;
 			children = (
+				ADC4529F1F47307700EC4E5E /* Extensions */,
 				ADF298231F3FB0D500DE8767 /* AppDelegate.swift */,
 				ADF298571F3FB3BD00DE8767 /* SomeCodes */,
 				ADF2985D1F3FB4FF00DE8767 /* model */,
@@ -329,6 +340,7 @@
 			files = (
 				ADF2985F1F3FB54000DE8767 /* Plataform.swift in Sources */,
 				ADF2982A1F3FB0D500DE8767 /* GameScene.swift in Sources */,
+				ADC452A11F47309300EC4E5E /* PlatformTypes+Variables.swift in Sources */,
 				ADF2982C1F3FB0D500DE8767 /* GameViewController.swift in Sources */,
 				ADF298631F3FC29800DE8767 /* ColorIDenum.swift in Sources */,
 				ADF298241F3FB0D500DE8767 /* AppDelegate.swift in Sources */,

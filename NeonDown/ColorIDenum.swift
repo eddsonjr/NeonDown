@@ -15,7 +15,10 @@ import UIKit
 enum ColorIDenum: Int{
     case clear = 0
     case green = 1
-    case purple = 2
+    case blue = 2
     case yellow = 3
-    case blue = 4
+    case purple = 4
+    
+    //return the number of elements in Enum
+    static var count: Int { return ColorIDenum.blue.hashValue}
 }
