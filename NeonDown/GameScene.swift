@@ -24,11 +24,17 @@ class GameScene: SKScene {
     //Mark: Init scene
     override func sceneDidLoad() {
       
-        //criando plataformas - Test
-        generatePlatforms(totalOfPlatforms: 5, currentPlatform: 1, ratioOfYDistances: -45.5, firstYPos: 250, platformColorID: getTypeOfPlatform())
+       
        
     }
     
+    
+    override func didMove(to view: SKView) {
+     
+        //criando plataformas - Test
+        generatePlatforms(totalOfPlatforms: 10, currentPlatform: 1, ratioOfYDistances: -45.5, firstYPos: 250, platformColorID: getTypeOfPlatform())
+        
+    }
     
     
     //Mark: Touch functions
@@ -82,9 +88,11 @@ class GameScene: SKScene {
         var currentYPos = CGFloat(firstYPos + (Float(currentPlatform) - 1)*(ratioOfYDistances))
       
         if currentPlatform > totalOfPlatforms {
+            print(dbgmsg + "ALL PLATFORMS GENERATED.")
             lastYPosition = currentYPos
             return
         }else {
+            print(dbgmsg + "Current plaftform number: \(currentPlatform)")
             
             
             switch platformColorID {
@@ -96,7 +104,7 @@ class GameScene: SKScene {
                     let platform = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "greenSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 25), platformColorID: ColorIDenum.green.rawValue)
                 
                     //setup platform y position
-                    platform.position = CGPoint(x: 0.0, y: currentYPos)
+                    platform.position = CGPoint(x: letfOrRight(platform: platform), y: currentYPos)
                     //add chield node
                     self.addChild(platform)
     
@@ -110,7 +118,7 @@ class GameScene: SKScene {
                     let platform = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "blueSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 25), platformColorID: ColorIDenum.green.rawValue)
                 
                     //setup platform y position
-                    platform.position = CGPoint(x: 0.0, y: currentYPos)
+                    platform.position = CGPoint(x: letfOrRight(platform: platform), y: currentYPos)
                     //add chield node
                     self.addChild(platform)
                     
@@ -125,12 +133,13 @@ class GameScene: SKScene {
                     let platform = Plataform(texture: SKTexture(image: #imageLiteral(resourceName: "greenSquare")), color: SKColor.clear, size: CGSize(width: 120, height: 25), platformColorID: ColorIDenum.green.rawValue)
                 
                     //setup platform y position
-                    platform.position = CGPoint(x: 0.0, y: currentYPos)
+                    platform.position = CGPoint(x: letfOrRight(platform: platform), y: currentYPos)
                     //add chield node
                     self.addChild(platform)
                     
                     print(dbgmsg + "Platform: \(platform.platformColorID) | \(platform.position) | \(platform.size)")
                 
+                break
             } //close switch case
             
         }
@@ -154,7 +163,22 @@ class GameScene: SKScene {
     }
     
     
-    //This functio
+    //This function determines X platform location
+    func letfOrRight(platform: Plataform) -> CGFloat {
+        
+        let leftOrRigth = Int(arc4random_uniform(2))
+        var xPosition: CGFloat?
+        
+        if leftOrRigth == 0 {
+            print(dbgmsg + "Platform in left of screen")
+            xPosition = CGFloat((platform.size.width/2) + (platform.size.width*0.25))
+        }else {
+            print(dbgmsg + "Platform in rigth of screen")
+            xPosition = CGFloat(-((platform.size.width/2) + (platform.size.width*0.25)))
+            
+        }
+        return xPosition!
+    }
     
     
     
