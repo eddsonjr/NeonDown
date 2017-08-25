@@ -8,6 +8,8 @@
 
 import SpriteKit
 import GameplayKit
+import Foundation
+import UIKit
 
 class GameScene: SKScene {
     
@@ -16,8 +18,12 @@ class GameScene: SKScene {
     var lastYPosition: CGFloat?
     
     
-    
+    //debug message
     private let dbgmsg = "[GameScene]: "
+    
+    
+    //schedule timer
+    var timerToGeneratePlatforms: Timer?
     
     
     
@@ -179,6 +185,32 @@ class GameScene: SKScene {
         }
         return xPosition!
     }
+    
+    
+    
+    
+    
+    //Mark: Timer functions
+    
+    //starttimer
+    func startTimer() {
+        
+        self.timerToGeneratePlatforms = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: Selector("handleTimer"), userInfo: nil, repeats: true)
+        
+//        self.timerToGeneratePlatforms = Timer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(handleTimer(_:)), userInfo: nil, repeats: true)
+    }
+    
+    
+    func handleTimer(timer: Timer) {
+        // do something here
+    }
+    
+    func stopTimer() {
+        self.timerToGeneratePlatforms?.invalidate()
+    }
+
+    
+    
     
     
     
