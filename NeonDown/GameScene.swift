@@ -40,6 +40,9 @@ class GameScene: SKScene {
         //criando plataformas - Test
         generatePlatforms(totalOfPlatforms: 10, currentPlatform: 1, ratioOfYDistances: -45.5, firstYPos: 250, platformColorID: getTypeOfPlatform())
         
+        
+        //testando o handlertimer
+        startTimer()
     }
     
     
@@ -91,7 +94,7 @@ class GameScene: SKScene {
         
         
         //Calculate the platform Y position using arithmetic progression
-        var currentYPos = CGFloat(firstYPos + (Float(currentPlatform) - 1)*(ratioOfYDistances))
+        let currentYPos = CGFloat(firstYPos + (Float(currentPlatform) - 1)*(ratioOfYDistances))
       
         if currentPlatform > totalOfPlatforms {
             print(dbgmsg + "ALL PLATFORMS GENERATED.")
@@ -114,7 +117,7 @@ class GameScene: SKScene {
                     //add chield node
                     self.addChild(platform)
     
-                    print(dbgmsg + "Platform: \(platform.platformColorID) | \(platform.position) | \(platform.size)")
+                    print(dbgmsg + "Platform: \(String(describing: platform.platformColorID)) | \(platform.position) | \(platform.size)")
                     break
                 
                 
@@ -128,7 +131,7 @@ class GameScene: SKScene {
                     //add chield node
                     self.addChild(platform)
                     
-                    print(dbgmsg + "Platform: \(platform.platformColorID) | \(platform.position) | \(platform.size)")
+                    print(dbgmsg + "Platform: \(String(describing: platform.platformColorID)) | \(platform.position) | \(platform.size)")
 
   
                 break
@@ -143,7 +146,7 @@ class GameScene: SKScene {
                     //add chield node
                     self.addChild(platform)
                     
-                    print(dbgmsg + "Platform: \(platform.platformColorID) | \(platform.position) | \(platform.size)")
+                    print(dbgmsg + "Platform: \(String(describing: platform.platformColorID)) | \(platform.position) | \(platform.size)")
                 
                 break
             } //close switch case
@@ -195,14 +198,16 @@ class GameScene: SKScene {
     //starttimer
     func startTimer() {
         
-        self.timerToGeneratePlatforms = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: Selector("handleTimer"), userInfo: nil, repeats: true)
-        
-//        self.timerToGeneratePlatforms = Timer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(handleTimer(_:)), userInfo: nil, repeats: true)
+        self.timerToGeneratePlatforms = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(handleTimer(timer:)), userInfo: nil, repeats: true)
     }
     
     
     func handleTimer(timer: Timer) {
-        // do something here
+        print(dbgmsg + "calling handler timer. Creating more platforms.")
+        
+        //create more platforms
+        generatePlatforms(totalOfPlatforms: 10, currentPlatform: 1, ratioOfYDistances: -45.5, firstYPos: 250, platformColorID: getTypeOfPlatform())
+        
     }
     
     func stopTimer() {
