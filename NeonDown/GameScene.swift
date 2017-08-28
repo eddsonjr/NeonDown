@@ -38,7 +38,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
      
         //criando plataformas - Test
-        generatePlatforms(totalOfPlatforms: 10, currentPlatform: 1, ratioOfYDistances: -45.5, firstYPos: 250, platformColorID: getTypeOfPlatform())
+        generatePlatforms(totalOfPlatforms: 10, currentPlatform: 1, ratioOfYDistances: -80.5, firstYPos: 250, platformColorID: getTypeOfPlatform())
         
         
         //testando o handlertimer
@@ -198,7 +198,7 @@ class GameScene: SKScene {
     //starttimer
     func startTimer() {
         
-        self.timerToGeneratePlatforms = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(handleTimer(timer:)), userInfo: nil, repeats: true)
+        self.timerToGeneratePlatforms = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(handleTimer(timer:)), userInfo: nil, repeats: true)
     }
     
     
@@ -209,7 +209,7 @@ class GameScene: SKScene {
         self.removeAllChildren()
         
         //create more platforms
-        generatePlatforms(totalOfPlatforms: 10, currentPlatform: 1, ratioOfYDistances: -45.5, firstYPos: 250, platformColorID: getTypeOfPlatform())
+        generatePlatforms(totalOfPlatforms: 10, currentPlatform: 1, ratioOfYDistances: -80.5, firstYPos: 250, platformColorID: getTypeOfPlatform())
         
     }
     
